@@ -5,47 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PKOS Farkındalık Derneği</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; margin: 0; color: #333; }
-        header { background: #8e44ad; color: white; padding: 2rem; text-align: center; }
-        nav { background: #f4f4f4; padding: 10px; text-align: center; }
-        section { padding: 20px; max-width: 800px; margin: auto; }
-        .card { border-left: 5px solid #8e44ad; background: #f9f9f9; padding: 15px; margin-bottom: 20px; }
-        footer { text-align: center; padding: 20px; background: #333; color: white; }
+        /* Logonun ana renklerini buraya tanımladık */
+        :root {
+            --ana-renk: #E19177; /* Logodaki açık somon tonu */
+            --koyu-renk: #A6634F; /* Logodaki koyu kahve/toprak tonu */
+            --arka-plan: #FFF9F7; 
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; color: #444; background-color: var(--arka-plan); }
+        
+        header { 
+            background: white; 
+            padding: 30px; 
+            text-align: center; 
+            border-bottom: 3px solid var(--ana-renk);
+        }
+
+        .logo {
+            max-width: 300px; /* Logonun büyüklüğünü buradan ayarlayabilirsin */
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        nav { background: var(--koyu-renk); padding: 15px; text-align: center; position: sticky; top: 0; }
+        nav a { color: white; text-decoration: none; font-weight: bold; margin: 0 15px; transition: 0.3s; }
+        nav a:hover { color: var(--ana-renk); }
+
+        section { padding: 40px 20px; max-width: 900px; margin: auto; background: white; margin-top: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        
+        h2 { color: var(--koyu-renk); border-bottom: 2px solid var(--ana-renk); display: inline-block; padding-bottom: 5px; }
+        
+        .card { border-left: 5px solid var(--ana-renk); background: #fff2ee; padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        
+        footer { text-align: center; padding: 30px; background: #333; color: white; margin-top: 50px; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>PKOS Farkındalık Derneği</h1>
-    <p>Bilgi, Destek ve Güç Birliği</p>
+    <img src="pcos logo.png" alt="PKOS Farkındalık Derneği Logosu" class="logo">
+    <p style="color: var(--koyu-renk); font-style: italic;">Bilgi, Destek ve Güç Birliği</p>
 </header>
 
 <nav>
-    <a href="#nedir">PKOS Nedir?</a> | 
-    <a href="#belirtiler">Belirtiler</a> | 
-    <a href="#iletisim">İletişim</a>
+    <a href="#nedir">PKOS NEDİR?</a>
+    <a href="#belirtiler">BELİRTİLER</a>
+    <a href="#destek">DESTEK</a>
+    <a href="#iletisim">İLETİŞİM</a>
 </nav>
 
 <section id="nedir">
     <h2>PKOS Nedir?</h2>
-    <p>Polikistik Over Sendromu (PKOS), üreme çağındaki kadınlarda yaygın görülen hormonal bir bozukluktur.</p>
+    <p>Polikistik Over Sendromu (PKOS), üreme çağındaki kadınlarda en sık görülen hormonal bozukluklardan biridir. Adını, yumurtalıklarda oluşan çok sayıda küçük, iyi huylu kist görünümünden alır.</p>
     <div class="card">
-        <strong>Önemli:</strong> Erken teşhis ve yaşam tarzı değişiklikleri ile yönetilebilir bir durumdur.
+        <strong>Farkında Olun:</strong> PKOS sadece bir üreme sağlığı sorunu değil, aynı zamanda metabolik bir süreçtir. Doğru bilgiyle yönetilmesi mümkündür.
     </div>
 </section>
 
 <section id="belirtiler">
     <h2>Sık Görülen Belirtiler</h2>
-    <ul>
-        <li>Düzensiz adet döngüsü</li>
-        <li>Ciltte yağlanma ve sivilce</li>
-        <li>Hızlı kilo alımı veya kilo vermede zorluk</li>
-        <li>Tüylenme artışı</li>
+    <p>Her kadında farklılık gösterse de en yaygın belirtiler şunlardır:</p>
+    <ul style="list-style-type: square;">
+        <li>Adet düzensizliği veya yokluğu</li>
+        <li>Androjen (erkeklik hormonu) artışına bağlı tüylenme</li>
+        <li>İnsülin direnci ve kilo kontrolünde zorluk</li>
+        <li>Akne ve saç dökülmesi</li>
     </ul>
 </section>
 
 <footer id="iletisim">
     <p>&copy; 2025 PKOS Farkındalık Projesi | Bitirme Tezi</p>
+    <p>Bu site farkındalık amacıyla oluşturulmuştur.</p>
 </footer>
 
 </body>
