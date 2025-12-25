@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Üye Ol / Giriş Yap - PKOS Farkındalık Derneği</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- TEMEL STİLLER (Header uyumu için) --- */
+        :root { --ana-renk: #E19177; --koyu-renk: #A6634F; --acik-fon: #FFF9F7; --beyaz: #ffffff; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--acik-fon); color: #555; }
+        header { background-color: var(--beyaz); padding: 10px 20px; text-align: center; border-bottom: 3px solid var(--ana-renk); }
+        .logo { max-width: 150px; }
+
+        /* --- ÜYELİK FORMU TASARIMI --- */
+        .auth-container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            display: flex;
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        .auth-section {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-section { border-right: 1px solid #eee; }
+        .signup-section { background-color: #fff2ee; }
+
+        h2 { color: var(--koyu-renk); margin-bottom: 20px; font-weight: 300; font-size: 1.8rem; }
+
+        form { display: flex; flex-direction: column; gap: 15px; }
+
+        input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        input:focus { outline: none; border-color: var(--ana-renk); }
+
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-login { background-color: var(--koyu-renk); color: white; }
+        .btn-login:hover { background-color: var(--ana-renk); }
+
+        .btn-signup { background-color: var(--ana-renk); color: white; }
+        .btn-signup:hover { background-color: var(--koyu-renk); }
+
+        .back-link { margin-top: 20px; text-align: center; display: block; color: #888; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html">
+        <img src="logo.png" alt="Logo" class="logo">
+    </a>
+</header>
+
+<div class="auth-container">
+    <div class="auth-section login-section">
+        <h2>Giriş Yap</h2>
+        <p>Zaten üye misiniz? Hesabınıza giriş yapın.</p>
+        <form>
+            <input type="email" placeholder="E-posta Adresiniz">
+            <input type="password" placeholder="Şifreniz">
+            <button type="button" class="btn-login">Giriş Yap</button>
+            <a href="#" style="font-size: 0.8rem; color: #888;">Şifremi Unuttum</a>
+        </form>
+    </div>
+
+    <div class="auth-section signup-section">
+        <h2>Aramıza Katıl</h2>
+        <p>PKOS farkındalığına destek olmak için üye olun.</p>
+        <form>
+            <input type="text" placeholder="Adınız Soyadınız">
+            <input type="email" placeholder="E-posta Adresiniz">
+            <input type="tel" placeholder="Telefon Numaranız">
+            <input type="password" placeholder="Şifre Belirleyin">
+            <button type="button" class="btn-signup">Üye Ol</button>
+        </form>
+    </div>
+</div>
+
+<a href="index.html" class="back-link">← Ana Sayfaya Dön</a>
+
+</body>
+</html>
