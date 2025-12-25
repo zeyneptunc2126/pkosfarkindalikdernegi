@@ -16,18 +16,20 @@
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif; /* Daha zarif fontlar */
             margin: 0;
             padding: 0;
             background-color: var(--acik-fon);
             color: var(--gri);
             line-height: 1.6;
+            font-weight: 300; /* Genel ince yazı yapısı */
         }
 
-        /* --- HEADER & NAVİGASYON (Açılır Menü Kısmı) --- */
+        /* --- HEADER & NAVİGASYON --- */
         header {
             background-color: var(--beyaz);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            /* Altına ince bir çizgi ekledik, daha dergi havası versin diye */
+            border-bottom: 1px solid #eee; 
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -37,118 +39,168 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; /* Logo solda, menü sağda */
             align-items: center;
-            padding: 10px 20px;
+            padding: 15px 40px;
         }
 
         .logo {
-            max-width: 150px;
+            max-width: 140px; /* Logo biraz daha kibar */
             height: auto;
+            display: block;
         }
 
         /* Menü Yapısı */
+        nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end; /* Menüyü SAĞA yaslar */
+        }
+
         nav ul {
             list-style: none;
             margin: 0;
             padding: 0;
             display: flex;
             align-items: center;
+            gap: 10px; /* Linkler arası boşluk */
         }
 
         nav ul li {
             position: relative;
-            padding: 20px 15px;
+            padding: 10px 0; /* Hover alanı için dikey boşluk */
         }
 
-        /* Ana Menü Linkleri */
-        nav ul li a {
+        /* Ana Menü Linkleri - İNCE VE KÜÇÜK */
+        nav ul li > a {
             text-decoration: none;
             color: var(--koyu-renk);
-            font-weight: 600;
-            font-size: 0.95rem;
+            font-weight: 300; /* İnce yazı */
+            font-size: 0.85rem; /* Daha küçük punto */
             text-transform: uppercase;
+            letter-spacing: 1px; /* Harf aralığını açarak modern hava */
+            padding: 10px 15px;
             transition: color 0.3s;
             display: block;
         }
 
-        nav ul li a:hover {
+        nav ul li > a:hover {
             color: var(--ana-renk);
         }
 
         /* --- AÇILIR MENÜ (DROPDOWN) --- */
         .dropdown-menu {
-            display: none; /* Başlangıçta gizli */
+            display: none;
             position: absolute;
-            top: 100%; /* Ana menünün tam altında başla */
-            left: 0;
+            top: 100%;
+            right: 0; /* Sağa yaslı menü olduğu için alt menü de sağdan hizalansın */
             background-color: var(--beyaz);
-            min-width: 220px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            border-top: 4px solid var(--ana-renk);
-            border-radius: 0 0 5px 5px;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eee; /* Hafif çerçeve */
+            border-top: 3px solid var(--ana-renk);
             z-index: 999;
             padding: 10px 0;
+            text-align: left; /* Alt menü yazıları sola yaslı olsun */
         }
 
-        /* Üzerine gelince (Hover) menüyü göster */
         nav ul li:hover .dropdown-menu {
             display: block;
             animation: fadeIn 0.3s ease;
         }
 
-        /* Alt Menü Linkleri */
-        .dropdown-menu li {
-            padding: 0;
-            display: block;
-        }
+        .dropdown-menu li { padding: 0; display: block; }
 
         .dropdown-menu a {
-            padding: 10px 20px;
-            text-transform: none; /* Alt başlıklar küçük harf olsun */
-            font-size: 0.9rem;
-            font-weight: 400;
-            border-bottom: 1px solid #eee;
+            padding: 8px 20px;
+            text-transform: none; /* Alt başlıklar normal yazım */
+            font-size: 0.85rem;
+            color: #666;
+            border-bottom: 1px solid #fafafa;
         }
 
         .dropdown-menu a:hover {
             background-color: var(--acik-fon);
             color: var(--ana-renk);
-            padding-left: 25px; /* Hoverda hafif sağa kayma efekti */
         }
 
-        /* Üye Ol Butonu Özel Tasarımı */
+        /* Üye Ol Butonu - Daha Minimal */
         .uye-ol-btn {
-            background-color: var(--koyu-renk);
-            color: var(--beyaz) !important;
-            padding: 10px 20px;
-            border-radius: 25px;
-            transition: 0.3s;
+            border: 1px solid var(--koyu-renk);
+            border-radius: 20px;
+            padding: 5px 15px !important; /* !important ile diğer paddingi ezdik */
+            margin-left: 10px;
         }
         .uye-ol-btn:hover {
-            background-color: var(--ana-renk);
-            transform: scale(1.05);
+            background-color: var(--koyu-renk);
+            color: white !important;
         }
 
-        /* --- ANİMASYON --- */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- İÇERİK ALANI --- */
+        /* --- HERO GÖRSEL VE 3 SÜTUN --- */
         main {
-            padding: 60px 20px;
-            max-width: 1000px;
+            padding: 0 0 60px 0; /* Üst boşluğu sıfırladık, görsel tam otursun */
+            max-width: 100%;
             margin: auto;
-            text-align: center;
         }
 
-        .hero-title {
-            font-size: 2.5rem;
+        .hero-image-container {
+            width: 100%;
+            height: 400px; /* Görsel yüksekliği */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Resmi kutuya sığdırır ve keser */
+            object-position: center 30%; /* Resmin odak noktasını ayarlar */
+        }
+
+        /* Resim üzerindeki yazı (Opsiyonel, şimdilik kaldırdım temiz dursun diye) */
+        
+        /* --- 3 SÜTUNLU BİLGİ ALANI --- */
+        .info-section {
+            max-width: 1000px;
+            margin: -50px auto 0 auto; /* Resmi biraz yukarı bindirir */
+            position: relative;
+            z-index: 10;
+            display: flex;
+            gap: 30px;
+            padding: 0 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .info-card {
+            flex: 1;
+            min-width: 250px;
+            background: var(--beyaz);
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Yumuşak gölge */
+            border-bottom: 4px solid var(--ana-renk);
+            border-radius: 5px;
+        }
+
+        .info-card h3 {
             color: var(--koyu-renk);
-            font-weight: 300;
-            margin-bottom: 20px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .info-card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .info-card i {
+            font-size: 2rem;
+            color: var(--ana-renk);
+            margin-bottom: 15px;
         }
 
         /* --- FOOTER --- */
@@ -160,14 +212,12 @@
             margin-top: 50px;
         }
         
-        .footer-contact p {
-            margin: 5px 0;
-            font-size: 0.95rem;
-        }
-        
-        .footer-contact i {
-            margin-right: 10px;
-            color: #ffdce0;
+        .footer-contact p { margin: 5px 0; font-size: 0.9rem; }
+        .footer-contact i { margin-right: 10px; color: #ffdce0; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
     </style>
@@ -183,7 +233,7 @@
         <nav>
             <ul>
                 <li>
-                    <a href="#">Hakkımızda <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                    <a href="#">Hakkımızda <i class="fas fa-chevron-down" style="font-size: 8px; margin-left:3px;"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="biz-kimiz.html">Biz Kimiz?</a></li>
                         <li><a href="misyon-vizyon.html">Misyon & Vizyon</a></li>
@@ -192,7 +242,7 @@
                 </li>
 
                 <li>
-                    <a href="#">PKOS Hakkında <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                    <a href="#">PKOS Hakkında <i class="fas fa-chevron-down" style="font-size: 8px; margin-left:3px;"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="pkos-nedir.html">PKOS Nedir?</a></li>
                         <li><a href="belirtiler.html">Belirtiler</a></li>
@@ -203,7 +253,7 @@
                 </li>
 
                 <li>
-                    <a href="#">Yaşam ve Destek <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                    <a href="#">Yaşam ve Destek <i class="fas fa-chevron-down" style="font-size: 8px; margin-left:3px;"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="gercek-hikayeler.html">Gerçek Hikayeler</a></li>
                         <li><a href="uzman-kosesi.html">Uzman Köşesi</a></li>
@@ -212,7 +262,7 @@
                 </li>
 
                 <li>
-                    <a href="#">Projeler & Etkinlik <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                    <a href="#">Projeler <i class="fas fa-chevron-down" style="font-size: 8px; margin-left:3px;"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="devam-eden-projeler.html">Devam Eden Projeler</a></li>
                         <li><a href="etkinlik-takvimi.html">Etkinlik Takvimi</a></li>
@@ -220,7 +270,7 @@
                 </li>
 
                 <li>
-                    <a href="#">Destek Olun <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                    <a href="#">Destek Olun <i class="fas fa-chevron-down" style="font-size: 8px; margin-left:3px;"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="gonullu-ol.html">Gönüllü Ol</a></li>
                         <li><a href="bagis-yap.html">Bağış Yap</a></li>
@@ -228,7 +278,7 @@
                 </li>
 
                 <li>
-                    <a href="uye-ol.html" class="uye-ol-btn">Üye Ol / Giriş</a>
+                    <a href="uye-ol.html" class="uye-ol-btn">Üye Ol</a>
                 </li>
             </ul>
         </nav>
@@ -236,20 +286,42 @@
 </header>
 
 <main>
-    <h1 class="hero-title">Birlikte Daha Güçlüyüz</h1>
-    <p>PKOS Farkındalık Derneği olarak, polikistik over sendromu yaşayan her kadının yanındayız. Bilgi, destek ve dayanışma için doğru adrestesiniz.</p>
-    
-    <div style="margin-top: 40px;">
-        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=1000" alt="Kadın Dayanışması" style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+    <div class="hero-image-container">
+        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2053&auto=format&fit=crop" alt="Sağlıklı Yaşam ve PKOS">
+    </div>
+
+    <div class="info-section">
+        <div class="info-card">
+            <i class="fas fa-stethoscope"></i>
+            <h3>Erken Bilgi</h3>
+            <p>PKOS belirtilerini erkenden fark ederek sürecin kontrolünü elinize alın. Bilgi, en güçlü ilaçtır.</p>
+        </div>
+
+        <div class="info-card">
+            <i class="fas fa-hands-helping"></i>
+            <h3>Güçlü Destek</h3>
+            <p>Yalnız değilsiniz. Deneyimlerini paylaşan kadınlar ve uzmanlardan oluşan ağımızla her adımda yanınızdayız.</p>
+        </div>
+
+        <div class="info-card">
+            <i class="fas fa-user-md"></i>
+            <h3>Doğru Teşhis</h3>
+            <p>Uzman görüşleri ve güncel tıbbi makalelerle doğru tedavi yöntemlerine ulaşın, sağlığınızı koruyun.</p>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 60px; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <h2 style="color:var(--koyu-renk); font-weight: 300;">Farkındalık Yarat, Değişimi Başlat</h2>
+        <p>PKOS Farkındalık Derneği olarak amacımız, polikistik over sendromu yaşayan kadınların sesini duyurmak ve yaşam kalitelerini artırmaktır.</p>
     </div>
 </main>
 
 <footer>
     <div class="footer-contact">
-        <h3>İletişim</h3>
+        <h3 style="font-weight: 400; margin-bottom: 20px;">İletişim</h3>
         <p><i class="fas fa-envelope"></i> zeyneptunc168@gmail.com</p>
         <p><i class="fas fa-phone"></i> 0543 664 11 83</p>
-        <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.7;">&copy; 2025 PKOS Farkındalık Derneği</p>
+        <p style="margin-top: 30px; font-size: 0.75rem; opacity: 0.6;">&copy; 2025 PKOS Farkındalık Derneği | Bitirme Projesi</p>
     </div>
 </footer>
 
