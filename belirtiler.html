@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belirtiler - PKOS Farkındalık Derneği</title>
+    <style>
+        /* --- TASARIM KODLARI (Tüm sayfalarda aynı) --- */
+        :root { 
+            --ana-renk: #E19177; /* Açık somon */
+            --koyu-renk: #A6634F; /* Koyu toprak */
+            --metin-renk: #555; 
+            --arka-plan: #FFF9F7; 
+            --beyaz: #fff; 
+        }
+
+        body { 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+            line-height: 1.8; 
+            margin: 0; 
+            color: var(--metin-renk); 
+            background-color: var(--arka-plan);
+            font-weight: 300; 
+        }
+        
+        /* Header ve Logo */
+        header { 
+            background: var(--beyaz); 
+            padding: 20px 40px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-start;
+        }
+        
+        .logo {
+            max-width: 180px; 
+            height: auto;
+        }
+
+        /* Menü Tasarımı */
+        nav { display: flex; gap: 25px; }
+        
+        nav a { 
+            color: var(--koyu-renk); 
+            text-decoration: none; 
+            font-weight: 400; 
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--ana-renk);
+            transition: width 0.3s ease;
+        }
+        nav a:hover { color: var(--ana-renk); }
+        nav a:hover::after { width: 100%; }
+
+        /* İçerik Alanı */
+        main { padding: 60px 20px; max-width: 900px; margin: auto; }
+        
+        h1 { 
+            text-align: center; 
+            margin-bottom: 40px; 
+            font-size: 2.5rem; 
+            color: var(--koyu-renk); 
+            font-weight: 300; 
+        }
+
+        h2 {
+            color: var(--koyu-renk); 
+            font-weight: 300; 
+            border-bottom: 2px solid var(--ana-renk); 
+            display: inline-block; 
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        ul { margin-top: 20px; }
+        li { margin-bottom: 15px; font-size: 1.05rem; }
+        strong { color: var(--koyu-renk); font-weight: 600; }
+
+        /* Footer */
+        footer { 
+            text-align: center; 
+            padding: 30px; 
+            background: var(--koyu-renk); 
+            color: var(--beyaz); 
+            margin-top: 60px; 
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="pcos logo.png" alt="PKOS Farkındalık Derneği Logosu" class="logo">
+    </div>
+    <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="pkos-nedir.html">PKOS Nedir?</a>
+        <a href="belirtiler.html" style="color: var(--ana-renk);">Belirtiler</a>
+        <a href="destek.html">Destek</a>
+        <a href="iletisim.html">İletişim</a>
+    </nav>
+</header>
+
+<main>
+    <h1>Sık Görülen Belirtiler</h1>
+    <p>PKOS belirtileri her kadında farklılık gösterebilir. Bazı kadınlarda sadece tek bir belirti görülürken, bazılarında hepsi bir arada yaşanabilir. Tanı konulması için genellikle aşağıdaki üç temel kriterden en az ikisinin varlığı aranır:</p>
+
+    <h2>1. Adet Düzensizliği</h2>
+    <p>En yaygın belirtidir. Yumurtlama (ovülasyon) düzensiz olduğu için rahim içi duvarı her ay düzenli olarak dökülemez.</p>
+    <ul>
+        <li><strong>Seyrek Adet Görme:</strong> Yılda 9 kereden az adet görme.</li>
+        <li><strong>Adet Görememe (Amenore):</strong> 3 ay veya daha uzun süre hiç adet görmeme.</li>
+        <li><strong>Ağır Kanama:</strong> Adet dönemlerinin normalden daha uzun ve yoğun geçmesi.</li>
+    </ul>
+
+    <h2>2. Androjen Fazlalığı (Hiperandrojenizm)</h2>
+    <p>Erkeklik hormonlarının (testosteron vb.) normalden yüksek olması vücutta fiziksel değişimlere yol açabilir:</p>
+    <ul>
+        <li><strong>Tüylenme (Hirsutizm):</strong> Yüz, çene, göğüs, karın ve sırt bölgesinde kalın, siyah kıllanma artışı.</li>
+        <li><strong>Şiddetli Akne:</strong> Özellikle ergenlik sonrası devam eden ve tedaviye dirençli sivilceler.</li>
+        <li><strong>Saç Dökülmesi:</strong> Erkek tipi kellik olarak adlandırılan, şakaklardan açılan saç dökülmesi.</li>
+    </ul>
+
+    <h2>3. Polikistik Yumurtalık Görünümü</h2>
+    <p>Ultrason muayenesinde yumurtalıkların normalden daha büyük olduğu ve çevresinde inci kolye gibi dizilmiş çok sayıda (genellikle 12 veya daha fazla) küçük folikülün görüldüğü durumdur.</p>
+
+    <div style="background-color: #fff2ee; border-left: 4px solid var(--ana-renk); padding: 20px; margin-top: 40px; border-radius: 0 10px 10px 0;">
+        <strong>Önemli Not:</strong> Eğer bu belirtilerden bir veya birkaçını yaşıyorsanız, bir endokrinoloji uzmanı veya kadın hastalıkları uzmanına başvurmanız önerilir. Erken teşhis, uzun vadeli sağlık sorunlarını önlemede kritiktir.
+    </div>
+
+</main>
+
+<footer>
+    <p>&copy; 2025 PKOS Farkındalık Derneği Projesi.</p>
+</footer>
+
+</body>
+</html>
