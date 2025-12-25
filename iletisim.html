@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim - PKOS Farkındalık Derneği</title>
+    <style>
+        /* --- GENEL TASARIM KODLARI --- */
+        :root { 
+            --ana-renk: #E19177; 
+            --koyu-renk: #A6634F; 
+            --metin-renk: #555; 
+            --arka-plan: #FFF9F7; 
+            --beyaz: #fff; 
+        }
+
+        body { font-family: 'Segoe UI', Roboto, sans-serif; line-height: 1.8; margin: 0; color: var(--metin-renk); background-color: var(--arka-plan); font-weight: 300; }
+        
+        header { background: var(--beyaz); padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .logo-container { flex-grow: 1; display: flex; justify-content: flex-start; }
+        .logo { max-width: 180px; height: auto; }
+
+        nav { display: flex; gap: 25px; }
+        nav a { color: var(--koyu-renk); text-decoration: none; font-weight: 400; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; position: relative; }
+        nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--ana-renk); transition: width 0.3s ease; }
+        nav a:hover { color: var(--ana-renk); }
+        nav a:hover::after { width: 100%; }
+
+        main { padding: 60px 20px; max-width: 800px; margin: auto; }
+        h1 { text-align: center; margin-bottom: 20px; font-size: 2.5rem; color: var(--koyu-renk); font-weight: 300; }
+        
+        /* --- İLETİŞİM FORMU TASARIMI --- */
+        .contact-container { 
+            background: var(--beyaz); 
+            padding: 40px; 
+            border-radius: 12px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
+        }
+
+        form { display: flex; flex-direction: column; gap: 20px; }
+        
+        label { 
+            font-weight: 600; 
+            color: var(--koyu-renk); 
+            font-size: 0.95rem; 
+        }
+        
+        input, textarea {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            width: 100%; /* Kutucuklar tam genişlikte olsun */
+            box-sizing: border-box; /* Kenar paylarını hesaba kat */
+            background: #fafafa;
+            resize: vertical; /* Textarea sadece dikey büyüsün */
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--ana-renk);
+            background: white;
+        }
+
+        button {
+            background-color: var(--koyu-renk);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        
+        button:hover { background-color: var(--ana-renk); }
+
+        .contact-details { text-align: center; margin-top: 40px; color: var(--metin-renk); }
+
+        footer { text-align: center; padding: 30px; background: var(--koyu-renk); color: var(--beyaz); margin-top: 60px; font-size: 0.85rem; font-weight: 300; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="pcos logo.png" alt="PKOS Farkındalık Derneği Logosu" class="logo">
+    </div>
+    <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="pkos-nedir.html">PKOS Nedir?</a>
+        <a href="belirtiler.html">Belirtiler</a>
+        <a href="destek.html">Destek</a>
+        <a href="iletisim.html" style="color: var(--ana-renk);">İletişim</a>
+    </nav>
+</header>
+
+<main>
+    <h1>Bizimle İletişime Geçin</h1>
+    <p style="text-align: center; margin-bottom: 40px;">Merak ettikleriniz, önerileriniz veya destek için aşağıdaki formu doldurabilirsiniz.</p>
+
+    <div class="contact-container">
+        <form>
+            <div>
+                <label for="name">Adınız Soyadınız</label>
+                <input type="text" id="name" placeholder="Adınızı giriniz">
+            </div>
+
+            <div>
+                <label for="email">E-posta Adresiniz</label>
+                <input type="email" id="email" placeholder="ornek@email.com">
+            </div>
+
+            <div>
+                <label for="message">Mesajınız</label>
+                <textarea id="message" rows="6" placeholder="Mesajınızı buraya yazınız..."></textarea>
+            </div>
+
+            <button type="button">Gönder</button>
+        </form>
+    </div>
+
+    <div class="contact-details">
+        <p><strong>E-posta:</strong> iletisim@pkosfarkindalik.org</p>
+        <p><strong>Sosyal Medya:</strong> @pkosfarkindalik</p>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 PKOS Farkındalık Derneği Projesi.</p>
+</footer>
+
+</body>
+</html>
