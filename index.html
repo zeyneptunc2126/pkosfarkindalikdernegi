@@ -3,79 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PKOS Farkındalık Derneği</title>
+    <title>PKOS Farkındalık Derneği - Ana Sayfa</title>
     <style>
-        /* Logonun ana renklerini buraya tanımladık */
+        /* Logo Renk Paleti */
         :root {
-            --ana-renk: #E19177; /* Logodaki açık somon tonu */
-            --koyu-renk: #A6634F; /* Logodaki koyu kahve/toprak tonu */
-            --arka-plan: #FFF9F7; 
+            --ana-renk: #E19177; /* Açık somon */
+            --koyu-renk: #A6634F; /* Koyu toprak */
+            --metin-renk: #555;
+            --arka-plan: #FFF9F7;
+            --beyaz: #fff;
         }
 
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; color: #444; background-color: var(--arka-plan); }
+        /* Modern ve İnce Yazı Tipi */
+        body { 
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; 
+            line-height: 1.8; 
+            margin: 0; 
+            color: var(--metin-renk); 
+            background-color: var(--arka-plan);
+            font-weight: 300; /* Yazıların et kalınlığını düşürür */
+        }
         
+        /* Modern Header ve Navigasyon */
         header { 
-            background: white; 
-            padding: 30px; 
-            text-align: center; 
-            border-bottom: 3px solid var(--ana-renk);
+            background: var(--beyaz); 
+            padding: 20px 40px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
+        .logo-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-start;
+        }
+        
+        /* Logoyu daha küçük ve ortalı yapar */
         .logo {
-            max-width: 300px; /* Logonun büyüklüğünü buradan ayarlayabilirsin */
+            max-width: 180px; 
             height: auto;
-            margin-bottom: 10px;
+            display: block;
         }
 
-        nav { background: var(--koyu-renk); padding: 15px; text-align: center; position: sticky; top: 0; }
-        nav a { color: white; text-decoration: none; font-weight: bold; margin: 0 15px; transition: 0.3s; }
-        nav a:hover { color: var(--ana-renk); }
+        /* Sağ üstteki menü */
+        nav { 
+            display: flex;
+            gap: 25px;
+        }
+        
+        nav a { 
+            color: var(--koyu-renk); 
+            text-decoration: none; 
+            font-weight: 400; /* Biraz daha belirgin ama ince */
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
 
-        section { padding: 40px 20px; max-width: 900px; margin: auto; background: white; margin-top: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        /* Menü üzerine gelince alt çizgi efekti */
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--ana-renk);
+            transition: width 0.3s ease;
+        }
+        nav a:hover { color: var(--ana-renk); }
+        nav a:hover::after { width: 100%; }
+
+        /* Ana İçerik Alanı */
+        main { padding: 60px 20px; max-width: 1000px; margin: auto; }
         
-        h2 { color: var(--koyu-renk); border-bottom: 2px solid var(--ana-renk); display: inline-block; padding-bottom: 5px; }
+        h1, h2 { 
+            color: var(--koyu-renk); 
+            font-weight: 300; 
+            letter-spacing: 1.5px; 
+        }
+        h1 { text-align: center; margin-bottom: 40px; font-size: 2.5rem; }
+
+        .hero-text {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            color: var(--metin-renk);
+        }
+
+        /* Modern Kart Tasarımı */
+        .card-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card { 
+            flex: 1 1 300px;
+            background: var(--beyaz); 
+            padding: 30px; 
+            border-radius: 12px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--ana-renk);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .card:hover { transform: translateY(-5px); }
         
-        .card { border-left: 5px solid var(--ana-renk); background: #fff2ee; padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
-        
-        footer { text-align: center; padding: 30px; background: #333; color: white; margin-top: 50px; }
+        .card h3 { color: var(--koyu-renk); font-weight: 400; margin-top: 0; }
+        .card p { font-size: 0.95rem; }
+
+        /* Modern Footer */
+        footer { 
+            text-align: center; 
+            padding: 30px; 
+            background: var(--koyu-renk); 
+            color: var(--beyaz); 
+            margin-top: 60px; 
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+        footer p { margin: 5px 0; }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="pcos logo.png" alt="PKOS Farkındalık Derneği Logosu" class="logo">
-    <p style="color: var(--koyu-renk); font-style: italic;">Bilgi, Destek ve Güç Birliği</p>
+    <div class="logo-container">
+        <img src="pcos logo.png" alt="PKOS Farkındalık Derneği Logosu" class="logo">
+    </div>
+    <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="pkos-nedir.html">PKOS Nedir?</a>
+        <a href="belirtiler.html">Belirtiler</a>
+        <a href="destek.html">Destek</a>
+        <a href="iletisim.html">İletişim</a>
+    </nav>
 </header>
 
-<nav>
-    <a href="#nedir">PKOS NEDİR?</a>
-    <a href="#belirtiler">BELİRTİLER</a>
-    <a href="#destek">DESTEK</a>
-    <a href="#iletisim">İLETİŞİM</a>
-</nav>
+<main>
+    <h1>Hoş Geldiniz</h1>
+    <p class="hero-text">PKOS Farkındalık Derneği olarak amacımız, polikistik over sendromu hakkında doğru bilgiyi yaymak, destek sağlamak ve bir güç birliği oluşturmaktır.</p>
 
-<section id="nedir">
-    <h2>PKOS Nedir?</h2>
-    <p>Polikistik Over Sendromu (PKOS), üreme çağındaki kadınlarda en sık görülen hormonal bozukluklardan biridir. Adını, yumurtalıklarda oluşan çok sayıda küçük, iyi huylu kist görünümünden alır.</p>
-    <div class="card">
-        <strong>Farkında Olun:</strong> PKOS sadece bir üreme sağlığı sorunu değil, aynı zamanda metabolik bir süreçtir. Doğru bilgiyle yönetilmesi mümkündür.
+    <div class="card-container">
+        <div class="card">
+            <h3>Doğru Bilgi</h3>
+            <p>PKOS'un ne olduğunu, nedenlerini ve vücudunuz üzerindeki etkilerini bilimsel kaynaklarla öğrenin.</p>
+        </div>
+        <div class="card">
+            <h3>Erken Teşhis</h3>
+            <p>Belirtileri tanımak, erken teşhis ve etkili yönetim için atılacak en önemli adımdır.</p>
+        </div>
+        <div class="card">
+            <h3>Güçlü Destek</h3>
+            <p>Yalnız değilsiniz. Deneyimlerinizi paylaşabileceğiniz ve destek bulabileceğiniz bir topluluğun parçası olun.</p>
+        </div>
     </div>
-</section>
+</main>
 
-<section id="belirtiler">
-    <h2>Sık Görülen Belirtiler</h2>
-    <p>Her kadında farklılık gösterse de en yaygın belirtiler şunlardır:</p>
-    <ul style="list-style-type: square;">
-        <li>Adet düzensizliği veya yokluğu</li>
-        <li>Androjen (erkeklik hormonu) artışına bağlı tüylenme</li>
-        <li>İnsülin direnci ve kilo kontrolünde zorluk</li>
-        <li>Akne ve saç dökülmesi</li>
-    </ul>
-</section>
-
-<footer id="iletisim">
-    <p>&copy; 2025 PKOS Farkındalık Projesi | Bitirme Tezi</p>
-    <p>Bu site farkındalık amacıyla oluşturulmuştur.</p>
+<footer>
+    <p>&copy; 2025 PKOS Farkındalık Derneği Projesi. Tüm hakları saklıdır.</p>
+    <p style="opacity: 0.8;">Bu proje bir bitirme tezi kapsamında geliştirilmiştir.</p>
 </footer>
 
 </body>
