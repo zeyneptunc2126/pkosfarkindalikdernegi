@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerçek Hikayeler - PKOS Farkındalık Derneği</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* GENEL AYARLAR */
+        :root { --ana-renk: #E19177; --koyu-renk: #A6634F; --acik-fon: #FFF5F5; --beyaz: #ffffff; --gri: #555; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--acik-fon); color: var(--gri); line-height: 1.8; font-weight: 300; }
+        
+        /* HEADER & FOOTER */
+        header { background-color: var(--beyaz); border-bottom: 2px solid #ffe3e3; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 10px 40px; }
+        .logo { max-width: 130px; height: auto; }
+        nav { flex-grow: 1; display: flex; justify-content: flex-end; }
+        nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 20px; }
+        nav ul li { position: relative; padding: 15px 0; }
+        nav ul li > a { text-decoration: none; color: var(--koyu-renk); font-size: 0.9rem; text-transform: uppercase; transition: color 0.3s; }
+        nav ul li > a:hover { color: var(--ana-renk); }
+        .dropdown-menu { display: none; position: absolute; top: 100%; right: 0; background-color: var(--beyaz); min-width: 220px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-top: 3px solid var(--ana-renk); padding: 10px 0; z-index: 1001; }
+        nav ul li:hover .dropdown-menu { display: block; animation: fadeIn 0.3s ease; }
+        .dropdown-menu a { display: block; padding: 10px 20px; text-transform: none; color: #666; border-bottom: 1px solid #f9f9f9; }
+        .dropdown-menu a:hover { background-color: #fff0ed; color: var(--ana-renk); }
+        .uye-ol-btn { background-color: var(--koyu-renk); color: white !important; padding: 8px 20px !important; border-radius: 25px; font-weight: 600 !important; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        footer { background-color: var(--koyu-renk); color: white; padding: 50px 20px; text-align: center; margin-top: 80px; }
+
+        /* SAYFA İÇERİĞİ */
+        main { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+        h1 { color: var(--koyu-renk); font-weight: 300; font-size: 2.5rem; text-align: center; margin-bottom: 20px; }
+        p.intro { text-align: center; max-width: 700px; margin: 0 auto 50px auto; font-size: 1.1rem; }
+
+        .story-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .story-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); position: relative; transition: 0.3s; }
+        .story-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+        
+        /* Tırnak İşareti İkonu */
+        .quote-icon { position: absolute; top: 20px; left: 20px; font-size: 3rem; color: #ffe3e3; z-index: 0; font-family: serif; }
+        
+        .story-text { position: relative; z-index: 1; font-style: italic; color: #555; margin-bottom: 20px; }
+        .story-author { font-weight: 600; color: var(--ana-renk); text-align: right; display: block; }
+        
+        .share-story { background: var(--ana-renk); color: white; padding: 40px; border-radius: 15px; text-align: center; margin-top: 50px; }
+        .share-story h3 { margin-top: 0; font-weight: 400; font-size: 1.8rem; }
+        .share-btn { background: white; color: var(--ana-renk); padding: 10px 25px; text-decoration: none; border-radius: 25px; font-weight: 600; display: inline-block; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="index.html"><img src="logo.png" alt="PKOS Logo" class="logo"></a>
+        <nav>
+            <ul>
+                <li><a href="#">Hakkımızda <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="biz-kimiz.html">Biz Kimiz?</a></li>
+                        <li><a href="misyon-vizyon.html">Misyon & Vizyon</a></li>
+                        <li><a href="yonetim-kurulu.html">Yönetim Kurulu</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">PKOS Hakkında <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pkos-nedir.html">PKOS Nedir?</a></li>
+                        <li><a href="belirtiler.html">Belirtiler</a></li>
+                        <li><a href="tani-tedavi.html">Tanı ve Tedavi</a></li>
+                        <li><a href="pkos-beslenme.html">PKOS ve Beslenme</a></li>
+                        <li><a href="pkos-ruh-sagligi.html">PKOS ve Ruh Sağlığı</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" style="color:var(--ana-renk);">Yaşam ve Destek <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="gercek-hikayeler.html">Gerçek Hikayeler</a></li>
+                        <li><a href="uzman-kosesi.html">Uzman Köşesi</a></li>
+                        <li><a href="sss.html">S.S.S.</a></li>
+                    </ul>
+                </li>
+                 <li><a href="#">Projeler <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="devam-eden-projeler.html">Devam Eden Projeler</a></li>
+                        <li><a href="etkinlik-takvimi.html">Etkinlik Takvimi</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Destek Olun <i class="fas fa-chevron-down"></i></a>
+                     <ul class="dropdown-menu">
+                        <li><a href="gonullu-ol.html">Gönüllü Ol</a></li>
+                        <li><a href="bagis-yap.html">Bağış Yap</a></li>
+                    </ul>
+                </li>
+                <li><a href="uye-ol.html" class="uye-ol-btn">Üye Ol</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <h1>Gerçek Hikayeler</h1>
+    <p class="intro">Yalnız değilsiniz. Sizinle aynı yollardan geçmiş, mücadele etmiş ve güçlenmiş kadınların ilham veren hikayeleri.</p>
+
+    <div class="story-grid">
+        <div class="story-card">
+            <div class="quote-icon">“</div>
+            <p class="story-text">PKOS tanısı aldığımda 18 yaşındaydım ve çok korkmuştum. Yıllar içinde bedenimi sevmeyi ve onunla savaşmak yerine onu dinlemeyi öğrendim. Beslenme düzenimi değiştirince hayatım değişti.</p>
+            <span class="story-author">- Ayşe K. (24)</span>
+        </div>
+
+        <div class="story-card">
+            <div class="quote-icon">“</div>
+            <p class="story-text">Çocuğumun olmayacağı söylenmişti. Umudumu hiç kaybetmedim. Tedavi sürecinde yoga ve meditasyon en büyük destekçimdi. Şimdi 2 yaşında bir kızım var.</p>
+            <span class="story-author">- Selin Y. (32)</span>
+        </div>
+
+        <div class="story-card">
+            <div class="quote-icon">“</div>
+            <p class="story-text">Kilo vermek benim için imkansız gibiydi. İnsülin direncimi kırdıktan sonra her şey yoluna girdi. Önemli olan tartıdaki rakam değil, sağlıklı hissetmek.</p>
+            <span class="story-author">- Deniz M. (28)</span>
+        </div>
+    </div>
+
+    <div class="share-story">
+        <h3>Sizin Hikayeniz Nedir?</h3>
+        <p>Deneyimlerinizle başkalarına umut olmak ister misiniz?</p>
+        <a href="iletisim.html" class="share-btn">Hikayeni Paylaş</a>
+    </div>
+</main>
+
+<footer><p>&copy; 2025 PKOS Farkındalık Derneği.</p></footer>
+</body>
+</html>
