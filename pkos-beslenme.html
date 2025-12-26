@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PKOS ve Beslenme - PKOS Farkındalık Derneği</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+         :root { --ana-renk: #E19177; --koyu-renk: #A6634F; --acik-fon: #FFF5F5; --beyaz: #ffffff; --gri: #555; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--acik-fon); color: var(--gri); line-height: 1.8; font-weight: 300; }
+        header { background-color: var(--beyaz); border-bottom: 2px solid #ffe3e3; position: sticky; top: 0; z-index: 1000; }
+        .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 10px 40px; }
+        .logo { max-width: 130px; height: auto; }
+        nav { flex-grow: 1; display: flex; justify-content: flex-end; }
+        nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 20px; }
+        nav ul li { position: relative; padding: 15px 0; }
+        nav ul li > a { text-decoration: none; color: var(--koyu-renk); font-size: 0.9rem; text-transform: uppercase; transition: color 0.3s; }
+        nav ul li > a:hover { color: var(--ana-renk); }
+        .dropdown-menu { display: none; position: absolute; top: 100%; right: 0; background-color: var(--beyaz); min-width: 220px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-top: 3px solid var(--ana-renk); padding: 10px 0; z-index: 1001; }
+        nav ul li:hover .dropdown-menu { display: block; animation: fadeIn 0.3s ease; }
+        .dropdown-menu a { display: block; padding: 10px 20px; text-transform: none; color: #666; border-bottom: 1px solid #f9f9f9; }
+        .dropdown-menu a:hover { background-color: #fff0ed; color: var(--ana-renk); }
+        .uye-ol-btn { background-color: var(--koyu-renk); color: white !important; padding: 8px 20px !important; border-radius: 25px; font-weight: 600 !important; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        footer { background-color: var(--koyu-renk); color: white; padding: 50px 20px; text-align: center; margin-top: 80px; }
+
+        main { max-width: 900px; margin: 60px auto; padding: 0 20px; }
+        h1 { color: var(--koyu-renk); font-weight: 300; font-size: 2.5rem; text-align: center; margin-bottom: 40px; }
+        
+        .nutrition-card { background: white; padding: 30px; border-radius: 10px; margin-bottom: 20px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
+        .nutrition-icon { font-size: 2rem; color: var(--ana-renk); background: #fff0ed; padding: 15px; border-radius: 50%; }
+        .nutrition-content h3 { margin-top: 0; color: var(--koyu-renk); }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <a href="index.html"><img src="logo.png" alt="PKOS Logo" class="logo"></a>
+        <nav>
+            <ul>
+                <li><a href="#">Hakkımızda <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="biz-kimiz.html">Biz Kimiz?</a></li>
+                        <li><a href="misyon-vizyon.html">Misyon & Vizyon</a></li>
+                        <li><a href="yonetim-kurulu.html">Yönetim Kurulu</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" style="color:var(--ana-renk);">PKOS Hakkında <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pkos-nedir.html">PKOS Nedir?</a></li>
+                        <li><a href="belirtiler.html">Belirtiler</a></li>
+                        <li><a href="tani-tedavi.html">Tanı ve Tedavi</a></li>
+                        <li><a href="pkos-beslenme.html">PKOS ve Beslenme</a></li>
+                        <li><a href="pkos-ruh-sagligi.html">PKOS ve Ruh Sağlığı</a></li>
+                    </ul>
+                </li>
+                 <li><a href="#">Yaşam ve Destek <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="gercek-hikayeler.html">Gerçek Hikayeler</a></li>
+                        <li><a href="uzman-kosesi.html">Uzman Köşesi</a></li>
+                        <li><a href="sss.html">S.S.S.</a></li>
+                    </ul>
+                </li>
+                 <li><a href="#">Projeler <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="devam-eden-projeler.html">Devam Eden Projeler</a></li>
+                        <li><a href="etkinlik-takvimi.html">Etkinlik Takvimi</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Destek Olun <i class="fas fa-chevron-down"></i></a>
+                     <ul class="dropdown-menu">
+                        <li><a href="gonullu-ol.html">Gönüllü Ol</a></li>
+                        <li><a href="bagis-yap.html">Bağış Yap</a></li>
+                    </ul>
+                </li>
+                <li><a href="uye-ol.html" class="uye-ol-btn">Üye Ol</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <h1>PKOS ve Beslenme</h1>
+    
+    <div class="nutrition-card">
+        <div class="nutrition-icon"><i class="fas fa-bread-slice"></i></div>
+        <div class="nutrition-content">
+            <h3>Düşük Glisemik İndeks</h3>
+            <p>Kan şekerini hızlı yükselten beyaz ekmek ve şeker yerine; tam tahıllar, baklagiller ve sebzeler tercih edilmelidir.</p>
+        </div>
+    </div>
+
+    <div class="nutrition-card">
+        <div class="nutrition-icon"><i class="fas fa-leaf"></i></div>
+        <div class="nutrition-content">
+            <h3>Anti-Enflamatuar Besinler</h3>
+            <p>Vücuttaki ödemi ve iltihabı azaltmak için zerdeçal, zencefil, yeşil yapraklı sebzeler ve zeytinyağı tüketin.</p>
+        </div>
+    </div>
+
+    <div class="nutrition-card">
+        <div class="nutrition-icon"><i class="fas fa-ban"></i></div>
+        <div class="nutrition-content">
+            <h3>İşlenmiş Gıdalardan Kaçınma</h3>
+            <p>Paketli gıdalar, fast-food ve aşırı şekerli içecekler insülin direncini artırarak belirtileri kötüleştirir.</p>
+        </div>
+    </div>
+</main>
+
+<footer><p>&copy; 2025 PKOS Farkındalık Derneği.</p></footer>
+</body>
+</html>
