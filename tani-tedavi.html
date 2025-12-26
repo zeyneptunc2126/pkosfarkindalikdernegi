@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanı ve Tedavi - PKOS Farkındalık Derneği</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+         :root { --ana-renk: #E19177; --koyu-renk: #A6634F; --acik-fon: #FFF5F5; --beyaz: #ffffff; --gri: #555; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--acik-fon); color: var(--gri); line-height: 1.8; font-weight: 300; }
+        /* HEADER & FOOTER AYNI */
+        header { background-color: var(--beyaz); border-bottom: 2px solid #ffe3e3; position: sticky; top: 0; z-index: 1000; }
+        .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 10px 40px; }
+        .logo { max-width: 130px; height: auto; }
+        nav { flex-grow: 1; display: flex; justify-content: flex-end; }
+        nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 20px; }
+        nav ul li { position: relative; padding: 15px 0; }
+        nav ul li > a { text-decoration: none; color: var(--koyu-renk); font-size: 0.9rem; text-transform: uppercase; transition: color 0.3s; }
+        nav ul li > a:hover { color: var(--ana-renk); }
+        .dropdown-menu { display: none; position: absolute; top: 100%; right: 0; background-color: var(--beyaz); min-width: 220px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-top: 3px solid var(--ana-renk); padding: 10px 0; z-index: 1001; }
+        nav ul li:hover .dropdown-menu { display: block; animation: fadeIn 0.3s ease; }
+        .dropdown-menu a { display: block; padding: 10px 20px; text-transform: none; color: #666; border-bottom: 1px solid #f9f9f9; }
+        .dropdown-menu a:hover { background-color: #fff0ed; color: var(--ana-renk); }
+        .uye-ol-btn { background-color: var(--koyu-renk); color: white !important; padding: 8px 20px !important; border-radius: 25px; font-weight: 600 !important; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        footer { background-color: var(--koyu-renk); color: white; padding: 50px 20px; text-align: center; margin-top: 80px; }
+
+        main { max-width: 900px; margin: 60px auto; padding: 0 20px; }
+        h1 { color: var(--koyu-renk); font-weight: 300; font-size: 2.5rem; text-align: center; margin-bottom: 40px; }
+        h2 { color: var(--ana-renk); margin-top: 40px; }
+        ul { margin-bottom: 30px; }
+        li { margin-bottom: 10px; }
+        .treatment-box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); margin-bottom: 30px; border-left: 5px solid var(--ana-renk); }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <a href="index.html"><img src="logo.png" alt="PKOS Logo" class="logo"></a>
+        <nav>
+            <ul>
+                <li><a href="#">Hakkımızda <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="biz-kimiz.html">Biz Kimiz?</a></li>
+                        <li><a href="misyon-vizyon.html">Misyon & Vizyon</a></li>
+                        <li><a href="yonetim-kurulu.html">Yönetim Kurulu</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" style="color:var(--ana-renk);">PKOS Hakkında <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pkos-nedir.html">PKOS Nedir?</a></li>
+                        <li><a href="belirtiler.html">Belirtiler</a></li>
+                        <li><a href="tani-tedavi.html">Tanı ve Tedavi</a></li>
+                        <li><a href="pkos-beslenme.html">PKOS ve Beslenme</a></li>
+                        <li><a href="pkos-ruh-sagligi.html">PKOS ve Ruh Sağlığı</a></li>
+                    </ul>
+                </li>
+                 <li><a href="#">Yaşam ve Destek <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="gercek-hikayeler.html">Gerçek Hikayeler</a></li>
+                        <li><a href="uzman-kosesi.html">Uzman Köşesi</a></li>
+                        <li><a href="sss.html">S.S.S.</a></li>
+                    </ul>
+                </li>
+                 <li><a href="#">Projeler <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="devam-eden-projeler.html">Devam Eden Projeler</a></li>
+                        <li><a href="etkinlik-takvimi.html">Etkinlik Takvimi</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Destek Olun <i class="fas fa-chevron-down"></i></a>
+                     <ul class="dropdown-menu">
+                        <li><a href="gonullu-ol.html">Gönüllü Ol</a></li>
+                        <li><a href="bagis-yap.html">Bağış Yap</a></li>
+                    </ul>
+                </li>
+                <li><a href="uye-ol.html" class="uye-ol-btn">Üye Ol</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <h1>Tanı ve Tedavi Yöntemleri</h1>
+    
+    <div class="treatment-box">
+        <h2>Tanı Nasıl Konur?</h2>
+        <p>PKOS tanısı için tek bir test yoktur. Doktorunuz "Rotterdam Kriterleri" adı verilen şu üç maddeden en az ikisinin varlığına bakar:</p>
+        <ul>
+            <li><strong>Düzensiz Adetler:</strong> Yumurtlamanın seyrek olması veya olmaması.</li>
+            <li><strong>Androjen Fazlalığı:</strong> Kan testlerinde yüksek erkeklik hormonu veya fiziksel belirtiler (tüylenme, akne).</li>
+            <li><strong>Polikistik Over Görünümü:</strong> Ultrasonda yumurtalıkların kistik yapısı.</li>
+        </ul>
+    </div>
+
+    <div class="treatment-box">
+        <h2>Tedavi Yaklaşımları</h2>
+        <p>PKOS'un kesin bir tedavisi yoktur, ancak belirtiler yönetilebilir:</p>
+        <ul>
+            <li><strong>Yaşam Tarzı Değişikliği:</strong> İlk ve en etkili tedavidir. %5-10 oranında kilo kaybı bile adetleri düzenleyebilir.</li>
+            <li><strong>Doğum Kontrol Hapları:</strong> Adet döngüsünü düzenlemek ve hormonları dengelemek için kullanılır.</li>
+            <li><strong>Metformin:</strong> İnsülin direncini kırmak için diyabet tedavisinde kullanılan bir ilaçtır.</li>
+        </ul>
+    </div>
+</main>
+
+<footer><p>&copy; 2025 PKOS Farkındalık Derneği.</p></footer>
+</body>
+</html>
