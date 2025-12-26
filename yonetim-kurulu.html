@@ -17,7 +17,7 @@
         }
 
         body { 
-            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif; 
+            font-family: 'Segoe UI', sans-serif; 
             margin: 0; 
             background-color: var(--acik-fon); 
             color: var(--gri); 
@@ -49,7 +49,8 @@
             height: auto; 
             display: block;
         }
-        
+
+        /* Menü Hizalama */
         nav { 
             flex-grow: 1; 
             display: flex; 
@@ -70,6 +71,7 @@
             padding: 15px 0; 
         }
 
+        /* Menü Linkleri */
         nav ul li > a { 
             text-decoration: none; 
             color: var(--koyu-renk); 
@@ -83,7 +85,7 @@
             color: var(--ana-renk); 
         }
         
-        /* --- DROPDOWN MENÜ --- */
+        /* --- DROPDOWN (AÇILIR) MENÜ --- */
         .dropdown-menu { 
             display: none; 
             position: absolute; 
@@ -131,7 +133,7 @@
             to { opacity: 1; transform: translateY(0); } 
         }
 
-        /* --- SAYFA İÇERİĞİ (GRID YAPISI) --- */
+        /* --- SAYFA İÇERİĞİ --- */
         main { 
             max-width: 1000px; 
             margin: 60px auto; 
@@ -146,6 +148,7 @@
             font-size: 2.5rem;
         }
         
+        /* Grid ve Kartlar */
         .team-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -159,7 +162,7 @@
             border-radius: 15px; 
             box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
             transition: 0.3s; 
-            border-top: 5px solid transparent; /* Varsayılan kenarlık */
+            border-top: 5px solid transparent; 
         }
         
         .team-card:hover { 
@@ -195,7 +198,125 @@
             display: block; 
         }
         
-        /* Çağrı Kartı Özel Tasarımı */
+        /* Gönüllü Ol Kartı */
         .join-card {
-            background-color: #fffbf9; /* Çok hafif turuncu fon */
-            border: 2px dashed var
+            background-color: #fffbf9; 
+            border: 2px dashed var(--ana-renk); 
+        }
+        
+        .join-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 30px;
+            background-color: var(--ana-renk);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        .join-btn:hover {
+            background-color: var(--koyu-renk);
+        }
+
+        /* Footer */
+        footer { 
+            background-color: var(--koyu-renk); 
+            color: white; 
+            padding: 50px 20px; 
+            text-align: center; 
+            margin-top: 80px; 
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="index.html">
+            <img src="logo.png" alt="PKOS Farkındalık Derneği" class="logo">
+        </a>
+        
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" style="color:var(--ana-renk);">Hakkımızda <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="biz-kimiz.html">Biz Kimiz?</a></li>
+                        <li><a href="misyon-vizyon.html">Misyon & Vizyon</a></li>
+                        <li><a href="yonetim-kurulu.html">Yönetim Kurulu</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">PKOS Hakkında <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pkos-nedir.html">PKOS Nedir?</a></li>
+                        <li><a href="belirtiler.html">Belirtiler</a></li>
+                        <li><a href="tani-tedavi.html">Tanı ve Tedavi</a></li>
+                        <li><a href="pkos-beslenme.html">PKOS ve Beslenme</a></li>
+                        <li><a href="pkos-ruh-sagligi.html">PKOS ve Ruh Sağlığı</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">Yaşam ve Destek <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="gercek-hikayeler.html">Gerçek Hikayeler</a></li>
+                        <li><a href="uzman-kosesi.html">Uzman Köşesi</a></li>
+                        <li><a href="sss.html">S.S.S.</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">Projeler <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="devam-eden-projeler.html">Devam Eden Projeler</a></li>
+                        <li><a href="etkinlik-takvimi.html">Etkinlik Takvimi</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">Destek Olun <i class="fas fa-chevron-down"></i></a>
+                     <ul class="dropdown-menu">
+                        <li><a href="gonullu-ol.html">Gönüllü Ol</a></li>
+                        <li><a href="bagis-yap.html">Bağış Yap</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="uye-ol.html" class="uye-ol-btn">Üye Ol</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <h1>Yönetim Kurulu</h1>
+    
+    <div class="team-grid">
+        <div class="team-card">
+            <div class="avatar"><i class="fas fa-user"></i></div>
+            <h3>Zeynep Nur Tunç</h3>
+            <span class="role">Kurucu Başkan</span>
+            <p>Ege Üniversitesi Görsel İletişim Tasarımı öğrencisi. PKOS farkındalığı için tasarım ve tutkuyu birleştiriyor.</p>
+        </div>
+
+        <div class="team-card join-card">
+            <div class="avatar" style="background:white; color:var(--ana-renk);"><i class="fas fa-hand-holding-heart"></i></div>
+            <h3>Bizimle Çalışmak İster Misiniz?</h3>
+            <span class="role">Gönüllü Olun</span>
+            <p>Ekibimize katılmak, tecrübelerinizi paylaşmak veya projelerimizde yer almak için sizi bekliyoruz.</p>
+            <a href="gonullu-ol.html" class="join-btn">Başvuru Yap</a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 PKOS Farkındalık Derneği.</p>
+</footer>
+
+</body>
+</html>
