@@ -4,41 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PKOS Nedir? - PKOS Farkındalık Derneği</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --ana-renk: #E19177; --koyu-renk: #A6634F; --metin-renk: #555; --arka-plan: #FFF9F7; --beyaz: #fff; }
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.8; margin: 0; color: var(--metin-renk); background-color: var(--arka-plan); font-weight: 300; }
-        header { background: var(--beyaz); padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-        .logo-container { flex-grow: 1; display: flex; justify-content: flex-start; }
-        .logo { max-width: 180px; height: auto; }
-        nav { display: flex; gap: 25px; }
-        nav a { color: var(--koyu-renk); text-decoration: none; font-weight: 400; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; position: relative; }
-        nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--ana-renk); transition: width 0.3s ease; }
-        nav a:hover { color: var(--ana-renk); }
-        nav a:hover::after { width: 100%; }
-        main { padding: 60px 20px; max-width: 900px; margin: auto; }
-        h1 { text-align: center; margin-bottom: 40px; font-size: 2.5rem; color: var(--koyu-renk); font-weight: 300; }
-        h2 { color: var(--koyu-renk); font-weight: 300; border-bottom: 2px solid var(--ana-renk); display: inline-block; padding-bottom: 5px; margin-top: 40px; }
-        p { font-size: 1.1rem; margin-bottom: 20px; }
-        footer { text-align: center; padding: 30px; background: var(--koyu-renk); color: var(--beyaz); margin-top: 60px; font-size: 0.85rem; font-weight: 300; }
+        /* --- GENEL TASARIM --- */
+        :root { --ana-renk: #E19177; --koyu-renk: #A6634F; --acik-fon: #FFF5F5; --beyaz: #ffffff; --gri: #555; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--acik-fon); color: var(--gri); line-height: 1.8; font-weight: 300; }
+        
+        /* HEADER & FOOTER (Aynı Kalıp) */
+        header { background-color: var(--beyaz); border-bottom: 2px solid #ffe3e3; position: sticky; top: 0; z-index: 1000; }
+        .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 10px 40px; }
+        .logo { max-width: 130px; height: auto; }
+        nav { flex-grow: 1; display: flex; justify-content: flex-end; }
+        nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 20px; }
+        nav ul li { position: relative; padding: 15px 0; }
+        nav ul li > a { text-decoration: none; color: var(--koyu-renk); font-size: 0.9rem; text-transform: uppercase; transition: color 0.3s; }
+        nav ul li > a:hover { color: var(--ana-renk); }
+        .dropdown-menu { display: none; position: absolute; top: 100%; right: 0; background-color: var(--beyaz); min-width: 220px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-top: 3px solid var(--ana-renk); padding: 10px 0; z-index: 1001; }
+        nav ul li:hover .dropdown-menu { display: block; animation: fadeIn 0.3s ease; }
+        .dropdown-menu a { display: block; padding: 10px 20px; text-transform: none; color: #666; border-bottom: 1px solid #f9f9f9; }
+        .dropdown-menu a:hover { background-color: #fff0ed; color: var(--ana-renk); }
+        .uye-ol-btn { background-color: var(--koyu-renk); color: white !important; padding: 8px 20px !important; border-radius: 25px; font-weight: 600 !important; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        footer { background-color: var(--koyu-renk); color: white; padding: 50px 20px; text-align: center; margin-top: 80px; }
+
+        /* --- SAYFA ÖZEL İÇERİĞİ --- */
+        main { max-width: 900px; margin: 60px auto; padding: 0 20px; }
+        h1 { color: var(--koyu-renk); font-weight: 300; font-size: 2.5rem; text-align: center; margin-bottom: 40px; }
+        h2 { color: var(--koyu-renk); border-bottom: 2px solid var(--ana-renk); display: inline-block; margin-top: 40px; margin-bottom: 20px; font-weight: 400; }
+        
+        .info-box { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
+        .highlight { font-weight: 600; color: var(--ana-renk); }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo-container"><img src="logo.png" alt="PKOS Farkındalık Derneği Logosu" class="logo"></div>
+
+<header>
+    <div class="header-container">
+        <a href="index.html"><img src="logo.png" alt="PKOS Logo" class="logo"></a>
         <nav>
-            <a href="index.html">Ana Sayfa</a>
-            <a href="pkos-nedir.html" style="color: var(--ana-renk);">PKOS Nedir?</a>
-            <a href="belirtiler.html">Belirtiler</a>
-            <a href="destek.html">Destek</a>
-            <a href="iletisim.html">İletişim</a>
+            <ul>
+                <li><a href="#">Hakkımızda <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="biz-kimiz.html">Biz Kimiz?</a></li>
+                        <li><a href="misyon-vizyon.html">Misyon & Vizyon</a></li>
+                        <li><a href="yonetim-kurulu.html">Yönetim Kurulu</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" style="color:var(--ana-renk);">PKOS Hakkında <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pkos-nedir.html">PKOS Nedir?</a></li>
+                        <li><a href="belirtiler.html">Belirtiler</a></li>
+                        <li><a href="tani-tedavi.html">Tanı ve Tedavi</a></li>
+                        <li><a href="pkos-beslenme.html">PKOS ve Beslenme</a></li>
+                        <li><a href="pkos-ruh-sagligi.html">PKOS ve Ruh Sağlığı</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Yaşam ve Destek <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="gercek-hikayeler.html">Gerçek Hikayeler</a></li>
+                        <li><a href="uzman-kosesi.html">Uzman Köşesi</a></li>
+                        <li><a href="sss.html">S.S.S.</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Projeler <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="devam-eden-projeler.html">Devam Eden Projeler</a></li>
+                        <li><a href="etkinlik-takvimi.html">Etkinlik Takvimi</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Destek Olun <i class="fas fa-chevron-down"></i></a>
+                     <ul class="dropdown-menu">
+                        <li><a href="gonullu-ol.html">Gönüllü Ol</a></li>
+                        <li><a href="bagis-yap.html">Bağış Yap</a></li>
+                    </ul>
+                </li>
+                <li><a href="uye-ol.html" class="uye-ol-btn">Üye Ol</a></li>
+            </ul>
         </nav>
-    </header>
-    <main>
-        <h1>PKOS (Polikistik Over Sendromu) Nedir?</h1>
-        <p>Polikistik Over Sendromu (PKOS), üreme çağındaki kadınlarda en sık görülen endokrin (hormonal) bozukluklardan biridir. Yumurtalıkların androjen adı verilen erkeklik hormonlarını normalden fazla üretmesiyle karakterizedir.</p>
-        <h2>İsmi Nereden Gelir?</h2>
-        <p>"Polikistik" terimi, yumurtalıklarda bulunan çok sayıda küçük kisti ifade eder. Ancak bu kistler aslında içi sıvı dolu kesecikler olan foliküllerdir ve yumurtlama gerçekleşmediği için kist görünümünü alırlar.</p>
-    </main>
-    <footer><p>&copy; 2025 PKOS Farkındalık Derneği Projesi.</p></footer>
+    </div>
+</header>
+
+<main>
+    <h1>Polikistik Over Sendromu (PKOS) Nedir?</h1>
+    
+    <div class="info-box">
+        <p>Polikistik Over Sendromu (PKOS), üreme çağındaki kadınlarda en sık görülen <strong>endokrin (hormonal) bozukluktur</strong>. Yumurtalıklarda çok sayıda küçük, iyi huylu folikül (kist görünümü) oluşumu ve hormon dengesizliği ile karakterizedir.</p>
+
+        <h2>Neden Olur?</h2>
+        <p>PKOS'un kesin nedeni bilinmemekle birlikte, genetik ve çevresel faktörlerin birleşimi rol oynar:</p>
+        <ul>
+            <li><strong>İnsülin Direnci:</strong> Vücudun insülin hormonunu etkili kullanamaması, yumurtalıkların daha fazla androjen (erkeklik hormonu) üretmesine neden olabilir.</li>
+            <li><strong>Genetik:</strong> Ailenizde (anne veya kız kardeş) PKOS varsa, sizde görülme olasılığı daha yüksektir.</li>
+            <li><strong>Enflamasyon:</strong> Vücuttaki düşük dereceli iltihaplanma, androjen üretimini tetikleyebilir.</li>
+        </ul>
+
+        <h2>Sadece Bir Üreme Sorunu Değildir</h2>
+        <p>PKOS sadece hamile kalmayı zorlaştıran bir durum değildir. Uzun vadede <span class="highlight">diyabet, kalp hastalıkları ve metabolik sendrom</span> riskini artırabilir. Bu yüzden yaşam boyu yönetim gerektirir.</p>
+    </div>
+</main>
+
+<footer><p>&copy; 2025 PKOS Farkındalık Derneği.</p></footer>
 </body>
 </html>
