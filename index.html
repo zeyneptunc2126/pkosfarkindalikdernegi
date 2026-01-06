@@ -229,6 +229,86 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        /* --- MOBİL UYUMLULUK KODLARI (RESPONSIVE) --- */
+        @media screen and (max-width: 768px) {
+            /* Header Düzeni */
+            .header-container {
+                flex-direction: column; /* Yan yana değil alt alta olsun */
+                padding: 15px;
+            }
+
+            .logo {
+                margin-bottom: 20px; /* Logo ile menü arası boşluk */
+                max-width: 160px;
+            }
+
+            /* Menü Düzeni */
+            nav {
+                width: 100%;
+                justify-content: center;
+            }
+
+            nav ul {
+                flex-direction: column; /* Menü maddeleri alt alta */
+                width: 100%;
+                gap: 0;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #f1f1f1; /* Aralarına çizgi */
+                padding: 10px 0;
+            }
+
+            /* Açılır Menüler (Mobilde Hep Açık Görünsün) */
+            .dropdown-menu {
+                position: relative; /* Havada asılı kalmasın, yer kaplasın */
+                display: block; /* Gizleme, göster */
+                top: 0;
+                width: 100%;
+                box-shadow: none;
+                border-top: none;
+                background-color: #fafafa; /* Hafif gri fon */
+                padding: 0;
+            }
+
+            .dropdown-menu li a {
+                padding: 10px;
+                color: #888;
+                font-size: 0.85rem;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .dropdown-menu li a:hover {
+                padding-left: 10px; /* Mobilde kayma efektini kapat */
+            }
+
+            /* Ana Görsel (Hero) Ayarı */
+            .hero-image-container {
+                height: 300px; /* Mobilde çok yüksek olmasın */
+            }
+            
+            .hero-overlay h1 {
+                font-size: 1.8rem; /* Başlığı küçült */
+            }
+
+            /* Kartlar ve İçerik */
+            .info-section, .project-grid, .team-grid, .story-grid, main {
+                padding: 20px;
+                margin-top: 0;
+            }
+            
+            .info-card, .project-card, .team-card {
+                min-width: 100%; /* Kartlar tam genişlik olsun */
+                margin-bottom: 20px;
+            }
+
+            /* Video Alanı */
+            iframe {
+                height: auto;
+            }
+        }
     </style>
 </head>
 <body>
