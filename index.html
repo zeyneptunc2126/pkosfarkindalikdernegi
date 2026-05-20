@@ -7,33 +7,46 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* --- GENEL AYARLAR --- */
+        /* --- MODERN RENK PALETİ & AYARLAR --- */
         :root {
-            --ana-renk: #E19177; 
-            --koyu-renk: #A6634F; 
-            --acik-fon: #FFF5F5; 
+            --somon: #E19177; 
+            --koyu-somon: #C67860;
+            --acik-seftali: #FFF3EB; 
+            --koyu-toprak: #8B4A38;
+            --krem: #FCF9F6;
             --beyaz: #ffffff; 
-            --gri: #555;
+            --gri: #5C5451;
         }
 
         body {
             font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--acik-fon);
+            background-color: var(--krem);
             color: var(--gri);
-            line-height: 1.6;
+            line-height: 1.7;
             font-weight: 300;
+            position: relative;
         }
 
-        /* --- HEADER --- */
+        /* --- GRAIN (Kumlu Doku) EFEKTİ --- */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.04"/%3E%3C/svg%3E');
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* --- HEADER & MENÜ --- */
         header {
-            background-color: var(--beyaz);
-            border-bottom: 2px solid #ffe3e3; 
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px); /* Cam efekti */
+            border-bottom: 1px solid rgba(225, 145, 119, 0.2); 
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
         }
 
         .header-container {
@@ -42,222 +55,225 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 40px;
+            padding: 15px 40px;
             position: relative;
         }
 
         .logo {
-            max-width: 180px; 
+            max-width: 180px; /* Büyütülmüş logo boyutu */
             height: auto;
             display: block;
         }
 
-        /* --- MENÜ (Masaüstü) --- */
-        nav {
-            flex-grow: 1;
-            display: flex;
-            justify-content: flex-end; 
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        nav ul li {
-            position: relative;
-            padding: 15px 0;
-        }
-
+        nav { flex-grow: 1; display: flex; justify-content: flex-end; }
+        nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 25px; }
+        nav ul li { position: relative; padding: 10px 0; }
+        
         nav ul li > a {
             text-decoration: none;
-            color: var(--koyu-renk);
-            font-weight: 400;
-            font-size: 0.9rem;
+            color: var(--koyu-toprak);
+            font-weight: 500;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: color 0.3s;
+            letter-spacing: 1px;
+            transition: 0.3s;
         }
 
-        nav ul li > a:hover {
-            color: var(--ana-renk);
-        }
+        nav ul li > a:hover { color: var(--somon); }
 
-        /* Açılır Menü (Masaüstü) */
+        /* Modern Açılır Menü */
         .dropdown-menu {
             display: none;
             position: absolute;
             top: 100%;
-            right: 0;
+            right: -20px;
             background-color: var(--beyaz);
-            min-width: 220px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            border-top: 3px solid var(--ana-renk);
-            border-radius: 0 0 8px 8px;
+            min-width: 240px;
+            box-shadow: 0 20px 40px rgba(139, 74, 56, 0.08);
+            border-radius: 24px; /* Yumuşak form */
             z-index: 999;
-            padding: 10px 0;
+            padding: 15px;
+            border: 1px solid rgba(225, 145, 119, 0.1);
         }
 
-        nav ul li:hover .dropdown-menu {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-
+        nav ul li:hover .dropdown-menu { display: block; animation: floatUp 0.4s ease; }
         .dropdown-menu li { padding: 0; }
+        
         .dropdown-menu a {
             display: block;
-            padding: 10px 20px;
+            padding: 12px 20px;
             text-transform: none;
-            font-size: 0.9rem;
-            color: #666;
-            border-bottom: 1px solid #f9f9f9;
+            font-size: 0.95rem;
+            color: var(--gri);
+            border-radius: 12px;
+            margin-bottom: 5px;
+            transition: 0.3s;
         }
+        
         .dropdown-menu a:hover {
-            background-color: #fff0ed;
-            color: var(--ana-renk);
+            background-color: var(--acik-seftali);
+            color: var(--somon);
+            padding-left: 25px;
         }
 
-        /* Hamburger Menü İkonu (Masaüstünde Gizli) */
-        .menu-toggle {
-            display: none;
-            font-size: 1.8rem;
-            color: var(--koyu-renk);
-            cursor: pointer;
-        }
-
-        /* Üye Ol Butonu */
+        /* Modern Üye Ol Butonu */
         .uye-ol-btn {
-            background-color: var(--koyu-renk);
-            color: white !important;
-            padding: 8px 20px !important;
-            border-radius: 25px;
+            background-color: var(--somon);
+            color: var(--beyaz) !important;
+            padding: 12px 28px !important;
+            border-radius: 30px;
             font-weight: 600 !important;
+            box-shadow: 0 8px 20px rgba(225, 145, 119, 0.3);
+        }
+        .uye-ol-btn:hover { background-color: var(--koyu-somon); transform: translateY(-3px); }
+
+        .menu-toggle { display: none; font-size: 1.8rem; color: var(--koyu-toprak); cursor: pointer; }
+
+        /* --- HERO (ANA GÖRSEL) - YUMUŞAK FORMLAR --- */
+        main { padding-bottom: 80px; }
+        
+        .hero-section {
+            max-width: 1300px;
+            margin: 30px auto;
+            padding: 0 20px;
         }
 
-        /* --- MOBİL UYUMLULUK (Telefonda Burası Çalışır) --- */
-        @media screen and (max-width: 768px) {
-            .header-container {
-                padding: 15px 20px;
-            }
-
-            /* Hamburger İkonunu Göster */
-            .menu-toggle {
-                display: block;
-            }
-
-            /* Menüyü Gizle ve Dikey Yap */
-            nav {
-                display: none; /* Başlangıçta gizli */
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--beyaz);
-                border-top: 1px solid #eee;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            }
-
-            /* Menü Açıldığında (.active sınıfı eklenince) */
-            nav.active {
-                display: block;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 0;
-            }
-
-            nav ul li {
-                width: 100%;
-                text-align: center;
-                padding: 0;
-                border-bottom: 1px solid #fafafa;
-            }
-
-            nav ul li > a {
-                display: block;
-                padding: 15px;
-                font-weight: 600;
-            }
-
-            /* Mobilde Dropdown Hep Açık Olsun Ama Gri Olsun */
-            .dropdown-menu {
-                position: relative;
-                display: block;
-                box-shadow: none;
-                border-top: none;
-                background-color: #f9f9f9;
-                padding: 0;
-            }
-            
-            nav ul li:hover .dropdown-menu {
-                animation: none;
-            }
-
-            /* Ana Görsel Boyutlandırma */
-            .hero-image-container {
-                height: 250px !important;
-            }
-            
-            .hero-overlay h1 {
-                font-size: 1.5rem !important;
-            }
-            
-            /* Kartlar Alt Alta */
-            .info-section {
-                flex-direction: column;
-                margin-top: 20px !important;
-            }
-            
-            .info-card {
-                margin-bottom: 20px;
-            }
+        .hero-image-container {
+            width: 100%;
+            height: 550px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 40px; /* Büyük ve yumuşak köşe */
+            box-shadow: 0 20px 50px rgba(139, 74, 56, 0.1);
         }
 
-        /* --- DİĞER STİLLER --- */
-        .hero-image-container { width: 100%; height: 500px; position: relative; overflow: hidden; }
         .hero-image-container img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 20px; }
-        .hero-overlay h1 { font-size: 3rem; font-weight: 300; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(139,74,56,0.6), rgba(0,0,0,0.1));
+            display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start;
+            padding: 60px; color: white;
+        }
 
-        .info-section { max-width: 1100px; margin: -60px auto 50px auto; position: relative; z-index: 10; display: flex; gap: 30px; padding: 0 20px; flex-wrap: wrap; justify-content: center; }
-        .info-card { flex: 1; min-width: 280px; background: var(--beyaz); padding: 40px 30px; text-align: center; box-shadow: 0 15px 30px rgba(0,0,0,0.05); border-radius: 10px; transition: transform 0.3s ease; }
-        .info-card i { font-size: 2.5rem; color: var(--ana-renk); margin-bottom: 20px; }
-        .info-card h3 { color: var(--koyu-renk); margin-bottom: 15px; font-size: 1.3rem; }
+        .hero-overlay h1 { font-size: 3.5rem; font-weight: 300; margin: 0 0 10px 0; }
+        .hero-overlay p { font-size: 1.2rem; font-weight: 300; max-width: 600px; margin: 0; opacity: 0.9; }
 
-        footer { background-color: var(--koyu-renk); color: white; padding: 50px 20px; text-align: center; margin-top: 80px; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* --- BİLGİ KARTLARI (Yumuşak ve Modern) --- */
+        .info-section {
+            max-width: 1100px;
+            margin: -60px auto 50px auto; /* Hero'nun üzerine hafif biner */
+            position: relative;
+            z-index: 10;
+            display: flex;
+            gap: 30px;
+            padding: 0 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .info-card {
+            flex: 1; min-width: 280px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            padding: 50px 35px;
+            text-align: center;
+            border-radius: 40px; /* Yumuşak şekiller */
+            box-shadow: 0 15px 35px rgba(225, 145, 119, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.4s ease;
+        }
+
+        .info-card:hover { transform: translateY(-15px); box-shadow: 0 25px 45px rgba(225, 145, 119, 0.2); }
+        
+        .icon-wrapper {
+            width: 80px; height: 80px;
+            background-color: var(--acik-seftali);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 25px auto;
+            color: var(--somon);
+            font-size: 2rem;
+        }
+
+        .info-card h3 { color: var(--koyu-toprak); margin-bottom: 15px; font-size: 1.4rem; font-weight: 500; }
+
+        /* --- VİDEO BÖLÜMÜ --- */
+        .video-section {
+            margin-top: 100px; text-align: center; padding: 0 20px;
+        }
+        .video-section h2 { color: var(--koyu-toprak); font-weight: 300; font-size: 2.2rem; margin-bottom: 40px; }
+        
+        .video-wrapper {
+            max-width: 900px; margin: 0 auto; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+            border-radius: 30px; /* Yumuşak köşeli video çerçevesi */
+            box-shadow: 0 30px 60px rgba(139, 74, 56, 0.15);
+            border: 8px solid var(--beyaz);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--koyu-toprak);
+            color: var(--acik-seftali);
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 80px;
+            border-radius: 60px 60px 0 0; /* Üstü oval modern footer */
+        }
+        
+        .footer-content h3 { color: var(--beyaz); font-weight: 300; letter-spacing: 2px; margin-bottom: 30px; }
+        .footer-content p { margin: 10px 0; font-size: 1rem; opacity: 0.8; }
+
+        @keyframes floatUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- MOBİL UYUMLULUK --- */
+        @media screen and (max-width: 768px) {
+            .header-container { padding: 15px 20px; }
+            .logo { max-width: 150px; }
+            .menu-toggle { display: block; }
+            
+            nav {
+                display: none; position: absolute; top: 100%; left: 0; width: 100%;
+                background-color: var(--beyaz); border-top: 1px solid #eee;
+                border-radius: 0 0 30px 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+                padding: 20px 0;
+            }
+            nav.active { display: block; }
+            nav ul { flex-direction: column; gap: 0; }
+            nav ul li { width: 100%; text-align: center; padding: 0; }
+            nav ul li > a { display: block; padding: 15px; }
+
+            .dropdown-menu { position: relative; display: block; box-shadow: none; border: none; background-color: var(--krem); border-radius: 0; padding: 10px; width: 90%; margin: 0 auto; }
+            nav ul li:hover .dropdown-menu { animation: none; }
+
+            .hero-section { padding: 0 10px; }
+            .hero-image-container { height: 400px; border-radius: 30px; }
+            .hero-overlay { padding: 30px; }
+            .hero-overlay h1 { font-size: 2.2rem; }
+
+            .info-section { flex-direction: column; margin-top: -30px; padding: 0 15px; }
+            .info-card { margin-bottom: 20px; padding: 40px 20px; }
+            
+            footer { border-radius: 40px 40px 0 0; padding: 50px 20px; }
+        }
     </style>
 </head>
 <body>
 
 <header>
     <div class="header-container">
-        <a href="index.html">
-            <img src="logo.png" alt="PKOS Farkındalık Derneği" class="logo">
-        </a>
-
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </div>
-
+        <a href="index.html"><img src="logo.png" alt="PKOS Farkındalık Derneği" class="logo"></a>
+        <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         <nav id="mobile-menu">
             <ul>
-                <li>
-                    <a href="#">Hakkımızda <i class="fas fa-chevron-down"></i></a>
+                <li><a href="#">Hakkımızda <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="biz-kimiz.html">Biz Kimiz?</a></li>
                         <li><a href="misyon-vizyon.html">Misyon & Vizyon</a></li>
                         <li><a href="yonetim-kurulu.html">Yönetim Kurulu</a></li>
                     </ul>
                 </li>
-
-                <li>
-                    <a href="#">PKOS Hakkında <i class="fas fa-chevron-down"></i></a>
+                <li><a href="#">PKOS Hakkında <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="pkos-nedir.html">PKOS Nedir?</a></li>
                         <li><a href="belirtiler.html">Belirtiler</a></li>
@@ -266,77 +282,64 @@
                         <li><a href="pkos-ruh-sagligi.html">PKOS ve Ruh Sağlığı</a></li>
                     </ul>
                 </li>
-
-                <li>
-                    <a href="#">Yaşam ve Destek <i class="fas fa-chevron-down"></i></a>
+                <li><a href="#">Yaşam ve Destek <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="gercek-hikayeler.html">Gerçek Hikayeler</a></li>
                         <li><a href="uzman-kosesi.html">Uzman Köşesi</a></li>
                         <li><a href="sss.html">S.S.S.</a></li>
                     </ul>
                 </li>
-
-                <li>
-                    <a href="#">Projeler <i class="fas fa-chevron-down"></i></a>
+                <li><a href="#">Projeler <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="devam-eden-projeler.html">Devam Eden Projeler</a></li>
                         <li><a href="etkinlik-takvimi.html">Etkinlik Takvimi</a></li>
                     </ul>
                 </li>
-
-                <li>
-                    <a href="#">Destek Olun <i class="fas fa-chevron-down"></i></a>
+                <li><a href="#">Destek Olun <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="gonullu-ol.html">Gönüllü Ol</a></li>
                         <li><a href="bagis-yap.html">Bağış Yap</a></li>
                     </ul>
                 </li>
-
-                <li>
-                    <a href="uye-ol.html" class="uye-ol-btn">Üye Ol</a>
-                </li>
+                <li><a href="uye-ol.html" class="uye-ol-btn">Üye Ol</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
 <main>
-    <div class="hero-image-container">
-        <img src="kapak.png" alt="Mutlu Kadınlar">
-        <div class="hero-overlay">
-            <h1>Yalnız Değilsiniz</h1>
-            <p>Kız kardeşlik ve dayanışma ile PKOS'un üstesinden birlikte geliyoruz.</p>
+    <div class="hero-section">
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1543807535-eceef0bc6599?q=80&w=2000&auto=format&fit=crop" alt="Mutlu Kadınlar">
+            <div class="hero-overlay">
+                <h1>Yalnız Değilsiniz</h1>
+                <p>Kız kardeşlik ve dayanışma ile PKOS'un üstesinden birlikte geliyoruz.</p>
+            </div>
         </div>
     </div>
 
     <div class="info-section">
         <div class="info-card">
-            <i class="fas fa-book-open"></i>
+            <div class="icon-wrapper"><i class="fas fa-book-open"></i></div>
             <h3>Erken Bilgi</h3>
             <p>PKOS belirtilerini doğru tanımak, sağlıklı bir geleceğin ilk adımıdır. Bilinçlenin, güçlenin.</p>
         </div>
-
         <div class="info-card">
-            <i class="fas fa-users"></i>
+            <div class="icon-wrapper"><i class="fas fa-users"></i></div>
             <h3>Güçlü Destek</h3>
             <p>Hikayenizi paylaşın, deneyimlerinizi aktarın. Sizi anlayan kocaman bir aile burada.</p>
         </div>
-
         <div class="info-card">
-            <i class="fas fa-user-md"></i>
+            <div class="icon-wrapper"><i class="fas fa-user-md"></i></div>
             <h3>Doğru Teşhis</h3>
             <p>Alanında uzman doktorlar ve güncel tıbbi bilgilerle tedavi sürecinizi en doğru şekilde yönetin.</p>
         </div>
     </div>
 
-    <div style="margin-top: 80px; text-align: center; padding: 0 20px;">
-        <h2 style="color:var(--koyu-renk); font-weight: 300; margin-bottom: 30px;">Prof. Dr. İsmail Mete İtil ile PKOS Üzerine</h2>
-        <div style="max-width: 800px; margin: 0 auto; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-            <iframe 
-                src="https://www.youtube.com/embed/YY5cmseRD44?rel=0" 
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" 
-                allowfullscreen>
-            </iframe>
+    <div class="video-section">
+        <h2>Uzman Görüşü</h2>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_BURAYA?rel=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen></iframe>
         </div>
     </div>
 </main>
@@ -344,9 +347,9 @@
 <footer>
     <div class="footer-content">
         <h3>İLETİŞİM</h3>
-        <p><i class="fas fa-envelope"></i> zeyneptunc168@gmail.com</p>
-        <p><i class="fas fa-phone"></i> 0543 664 11 83</p>
-        <p style="margin-top: 30px; opacity: 0.6; font-size: 0.8rem;">&copy; 2025 PKOS Farkındalık Derneği</p>
+        <p><i class="fas fa-envelope" style="color:var(--somon); margin-right:10px;"></i> zeyneptunc168@gmail.com</p>
+        <p><i class="fas fa-phone" style="color:var(--somon); margin-right:10px;"></i> 0543 664 11 83</p>
+        <p style="margin-top: 40px; font-size: 0.85rem;">&copy; 2026 PKOS Farkındalık Derneği</p>
     </div>
 </footer>
 
